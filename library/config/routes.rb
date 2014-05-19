@@ -1,4 +1,5 @@
 Library::Application.routes.draw do
+  get "/library" => "library#index", as: 'library'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
