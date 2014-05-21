@@ -1,0 +1,17 @@
+<article class="book">
+  <header>
+    <h2><%= @book.title %></h2>
+  </header>
+  <p>
+      <%= image_tag(@book.image_cover_url, :size => "90x136") %>
+      <%= @book.abstract %>
+  </p>    
+  <p><label>ISBN:</label> <%= @book.isbn %></p>
+  <p><label>Author:</label> <%= @book.author %></p>
+  <p><label>Genre:</label> <%= @book.genre %></p>
+  <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
+  <p><label>Published On:</label> <%= @book.published_on %></p>
+  <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
+</article>
+
+<%= link_to 'All Books', books_path %>

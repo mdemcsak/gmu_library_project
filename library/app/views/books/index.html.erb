@@ -1,0 +1,11 @@
+<h1>All Books</h1>
+<ol>
+<% @books.each do |book| %>
+    <li>
+        <%= link_to(book) do %>
+            <%= image_tag(book.image_cover_url, :size => "90x136") %>
+        <% end %>
+        <%= link_to(book.title, book) %> by <%= book.author %><br/>
+    </li>
+<% end %>
+</ol>
