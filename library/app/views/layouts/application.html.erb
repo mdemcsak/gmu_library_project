@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="container">
+    <%= render '/layouts/header' %>
+  </div>
+  <div class="container">
+    <div class="col-xs-9">
+      <%= render '/shared/flashes' %>
+      <%= yield %>
+    </div>
+    <div class="col-xs-3">
+      <%= render '/layouts/sidebar' %>
+    </div>
+  </div>
+  <%= render '/layouts/footer' %>
 </body>
 </html>

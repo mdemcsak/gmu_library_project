@@ -1,4 +1,9 @@
 <h1>All Books</h1>
+<%= form_tag("/books", method: "get") do %>
+    <%= search_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+<%= page_entries_info @books %>
 <ol>
 <% @books.each do |book| %>
     <li>
@@ -9,3 +14,4 @@
     </li>
 <% end %>
 </ol>
+<%= paginate @books %>
