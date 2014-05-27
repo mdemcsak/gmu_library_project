@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reserved_on: 2014-05-27
+  due_on: 2014-05-27
+  user_id: 1
+  book_id: 1
+
+two:
+  reserved_on: 2014-05-27
+  due_on: 2014-05-27
+  user_id: 1
+  book_id: 1
