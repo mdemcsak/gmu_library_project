@@ -3,7 +3,7 @@
     <h2><%= @book.title %></h2>
   </header>
   <p>
-      <%= image_tag(@book.image_cover_url, :size => "90x136") %>
+      <%= image_tag(@book.image_cover_url, :size => "90x136",class: " img-thumbnail pull-left") %>
       <%= @book.abstract %>
   </p>    
   <p><label>ISBN:</label> <%= @book.isbn %></p>
