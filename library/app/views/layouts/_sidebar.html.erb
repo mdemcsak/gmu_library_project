@@ -1,14 +1,19 @@
 <div id="sidebar">
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title">Navigation</h3>
+    <h3 class="panel-title">Things to do...</h3>
   </div>
   <div class="panel-body">
+ 
     <p>
-      <%= link_to 'All Books', books_path %>
+      <%= link_to books_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-list-alt"></span> All Books
+      <% end %>
     </p>
-    <p>
-      <%= link_to 'New Book', new_book_path %>
+      <p>
+      <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-plus-sign"></span> New Book
+      <% end %>
     </p>
   </div>
 </div>

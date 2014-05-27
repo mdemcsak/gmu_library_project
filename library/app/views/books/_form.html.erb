@@ -1,17 +1,18 @@
-<%= form_for(@book) do |f| %>
+<%= form_for(@book, html:{class: 'form-horizontal'}) do |f| %>
+
 	<%= render 'shared/validation_errors', object: @book %>
 
-	<%= f.label :title %> <%= f.text_field :title, autofocus: true %><br />
-	<%= f.label :author %> <%= f.text_field :author %><br />
-	<%= f.label :isbn %> <%= f.text_field :isbn %><br />
-	<%= f.label :abstract %> <%= f.text_area :abstract %><br />
-	<%= f.label :pages %> <%= f.number_field :pages %><br />
-	<%= f.label :total_in_library %> <%= f.number_field :total_in_library %><br />
+	<%= f.label :title %> <%= f.text_field :title, autofocus: true, class: "form-control" %><br />
+	<%= f.label :author %> <%= f.text_field :author, class: "form-control" %><br />
+	<%= f.label :isbn %> <%= f.text_field :isbn, class: "form-control" %><br />
+	<%= f.label :abstract %> <%= f.text_area :abstract, class: "form-control" %><br />
+	<%= f.label :pages %> <%= f.number_field :pages, class: "form-control" %><br />
+	<%= f.label :total_in_library %> <%= f.number_field :total_in_library, class: "form-control" %><br />
     <%= f.label :genre %> <%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %><br />
-	<%= f.label :published_on %> <%= f.date_field :published_on %><br />
-	<%= f.label :image_cover_url %> <%= f.url_field :image_cover_url %><br />
+	<%= f.label :published_on %> <%= f.date_field :published_on, class: "form-control" %><br />
+	<%= f.label :image_cover_url %>	<%= f.url_field :image_cover_url, class: "form-control" %><br />
     <p>
-	    <%= f.submit %>
+	    <%= f.submit class: 'btn btn-primary' %>
 	    <%= link_to 'Cancel', books_path %>
   	</p>
 <% end %>

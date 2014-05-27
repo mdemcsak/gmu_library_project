@@ -1,7 +1,7 @@
 <h1>All Books</h1>
 <%= form_tag("/books", method: "get") do %>
     <%= search_field_tag(:q) %>
-    <%= submit_tag("Search") %>
+    <%= submit_tag("Search",class: "btn btn-primary") %>
 <% end %>
 <%= page_entries_info @books %>
 <ol>
