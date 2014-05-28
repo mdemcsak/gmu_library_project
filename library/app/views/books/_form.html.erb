@@ -3,12 +3,12 @@
 	<%= render 'shared/validation_errors', object: @book %>
 
 	<%= f.label :title %> <%= f.text_field :title, autofocus: true, class: "form-control" %><br />
-	<%= f.label :author %> <%= f.text_field :author, class: "form-control" %><br />
+	<%= f.label :author %> <%= f.select :author_id, Author::AUTHORS, { prompt: "Pick one" } , class: "form-control "%>
 	<%= f.label :isbn %> <%= f.text_field :isbn, class: "form-control" %><br />
 	<%= f.label :abstract %> <%= f.text_area :abstract, class: "form-control" %><br />
 	<%= f.label :pages %> <%= f.number_field :pages, class: "form-control" %><br />
 	<%= f.label :total_in_library %> <%= f.number_field :total_in_library, class: "form-control" %><br />
-    <%= f.label :genre %> <%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %><br />
+        <%= f.label :genre %> <%= f.select :genre, Book::GENRES, { prompt: "Pick one" } %><br />
 	<%= f.label :published_on %> <%= f.date_field :published_on, class: "form-control" %><br />
 	<%= f.label :image_cover_url %>	<%= f.url_field :image_cover_url, class: "form-control" %><br />
     <p>

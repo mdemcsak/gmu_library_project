@@ -11,6 +11,10 @@ Library::Application.routes.draw do
   resources :books do
       get 'page/:page', :action => :index, :on => :collection
   end
+  
+  get "/authors" => "authors#index", as: 'authors'
+  get "/authors/:id" => "authors#show", as: 'author'
+  
   root 'books#index'
     
   # The priority is based upon order of creation: first created -> highest priority.

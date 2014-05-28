@@ -14,11 +14,13 @@ class BooksController < ApplicationController
     end
 
     def new
+        Author.setAuthors
         @book = Book.new
     end
 
     def create
         @book = Book.new(book_params)
+        @book.author = Author::AUTHORS.key(@book.author_id)
         if @book.save
             redirect_to @book, notice: "#{@book.title} was created!"
         else
@@ -49,7 +51,7 @@ class BooksController < ApplicationController
     end
 
     def book_params
-        params.require(:book).permit(:isbn, :title, :abstract, :author, :pages, :image_cover_url, :genre, :published_on, :total_in_library)
+        params.require(:book).permit(:isbn, :title, :abstract, :author, :author_id, :pages, :image_cover_url, :genre, :published_on, :total_in_library)
     end
 
     def set_book
