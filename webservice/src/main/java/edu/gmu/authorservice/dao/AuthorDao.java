@@ -6,6 +6,8 @@ import java.util.Collection;
 
 public interface AuthorDao {
 
+    void populateAuthors();
+
     Author getAuthor(Integer id);
 
     Collection<Author> getAllAuthors();
