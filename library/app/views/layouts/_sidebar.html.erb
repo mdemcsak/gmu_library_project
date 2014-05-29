@@ -16,7 +16,9 @@
       <% end %>
     </p>
     <p>
-      <%= link_to 'Authors', authors_path %>
+      <%= link_to authors_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-user"></span> Authors
+      <% end %>
     </p>
   </div>
 </div>
