@@ -3,7 +3,7 @@
 <% @authors.each do |author| %>
     <li>
         <%= link_to(author) do %>
-            <%= image_tag(author.image_url, :size => "90x136") %>
+            <%= image_tag(author.image_url, :size => "90x136", class: 'img-thumbnail') %>
         <% end %>
         <%= link_to(author.name, author) %> <br/>
     </li>

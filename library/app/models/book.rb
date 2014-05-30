@@ -13,6 +13,8 @@ class Book < ActiveRecord::Base
     
     validates :genre,
         :inclusion => { :in => GENRES }
+
+    scope :by, ->(id) { where('author_id = ?', id) }
     
     def self.search(query)
         where("title like ? or author like ? or isbn = ?", "%#{query}%", "%#{query}%", "#{query}")

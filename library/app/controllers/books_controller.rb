@@ -5,8 +5,10 @@ class BooksController < ApplicationController
     def index
         if params[:q]
             @books = Book.search(params[:q]).order(:title).page(params[:page])
+            @header = 'Search Results'
         else
             @books = list_books
+            @header = 'All Books'
         end
     end
 

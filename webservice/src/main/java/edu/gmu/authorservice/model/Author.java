@@ -8,7 +8,7 @@ public class Author {
 
     private Integer _id;
     private String _name;
-    private Date _dob;
+    private String _dob;
     private String _nationality;
     private String _awards;
     private String _biography;
@@ -17,7 +17,7 @@ public class Author {
     public Author() {
     }
 
-    public Author(Integer id, String name, Date dob, String nationality, String biography, String awards, String imageUrl) {
+    public Author(Integer id, String name, String dob, String nationality, String biography, String awards, String imageUrl) {
         _id = id;
         _name = name;
         _dob = dob;
@@ -43,11 +43,11 @@ public class Author {
         _name = name;
     }
 
-    public Date getDob() {
+    public String getDob() {
         return _dob;
     }
 
-    public void setDob(Date dob) {
+    public void setDob(String dob) {
         _dob = dob;
     }
 

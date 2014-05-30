@@ -1,17 +1,8 @@
-<h1>All Books</h1>
+<header>
+    <h1><%= @header %></h1>
+</header>
 <%= form_tag("/books", method: "get") do %>
     <%= search_field_tag(:q) %>
     <%= submit_tag("Search",class: "btn btn-primary") %>
 <% end %>
-<%= page_entries_info @books %>
-<ol>
-<% @books.each do |book| %>
-    <li>
-        <%= link_to(book) do %>
-            <%= image_tag(book.image_cover_url, :size => "90x136", class: 'img-thumbnail') %>
-        <% end %>
-        <%= link_to(book.title, book) %> by <%= book.author %><br/>
-    </li>
-<% end %>
-</ol>
-<%= paginate @books %>
+<%= render 'list' %>
