@@ -2,7 +2,7 @@ class Book < ActiveRecord::Base
     has_many :reservations
     has_many :users, :through => :reservations
  
-    GENRES = ['Sci-Fi', 'Fiction', 'Fantasy', 'Western', 'Techno-Thriller', 'Satire']
+    GENRES = ['Sci-Fi', 'Fiction', 'Fantasy', 'Western', 'Techno-Thriller', 'Satire', 'Post-Apocalyptic', 'Dystopian']
     	
 	validates :isbn, :title, :abstract, :pages, :genre, :published_on, :total_in_library, presence: true
 	
@@ -14,6 +14,8 @@ class Book < ActiveRecord::Base
     
     validates :genre,
         :inclusion => { :in => GENRES }
+
+    scope :by, ->(id) { where('author_id = ?', id) }
     
     def self.search(query)
         where("title like ? or author like ? or isbn = ?", "%#{query}%", "%#{query}%", "#{query}")

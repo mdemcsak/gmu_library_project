@@ -7,6 +7,7 @@ class AuthorsController < ApplicationController
     end
 
     def show
+      @books = Book.by(params[:id]).order(:title).page(params[:page])
     end
 
     private
