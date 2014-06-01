@@ -12,6 +12,12 @@
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
   <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
+  <% @user = User.first %>
+  <% if @user.reservations.where(book_id: @book).empty? %>
+  <p><%= link_to "Reserve", create_reservation_path(book_id: @book), method: :post %></p>
+  <% else %>
+  <p><%= "You already have this book checked out." %></p>
+  <% end %>
 </article>
 
 <%= link_to 'All Books', books_path %>

@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
     has_many :reservations
-    
+    has_many :users, :through => :reservations
+ 
     GENRES = ['Sci-Fi', 'Fiction', 'Fantasy', 'Western', 'Techno-Thriller', 'Satire']
     	
 	validates :isbn, :title, :abstract, :pages, :genre, :published_on, :total_in_library, presence: true

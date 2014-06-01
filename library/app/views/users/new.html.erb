@@ -1,0 +1,14 @@
+<%= form_for(@user, html:{class: 'form-horizontal'}) do |f| %>
+
+	<%= render 'shared/validation_errors', object: @user %>
+
+	<%= f.label :name %> <%= f.text_field :name, autofocus: true, class: "form-control" %><br />
+	<%= f.label :user_id %> <%= f.text_field :user_id, class: "form-control" %>
+	<%= f.label :password %> <%= f.text_field :password, class: "form-control" %><br />
+	<%= f.label :password_confirmation %> <%= f.text_field :password_confirmation, class: "form-control" %><br />
+	<%= f.label :admin %> <%= f.select :admin, [true, false], { prompt: "Pick one"} %><br />
+    <p>
+	    <%= f.submit class: 'btn btn-primary' %>
+	    <%= link_to 'Cancel', sessions_path %>
+  	</p>
+<% end %>

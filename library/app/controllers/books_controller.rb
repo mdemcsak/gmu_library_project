@@ -21,7 +21,8 @@ class BooksController < ApplicationController
     def create
         @book = Book.new(book_params)
         @book.author = Author::AUTHORS.key(@book.author_id)
-        if @book.save
+        
+	if @book.save
             redirect_to @book, notice: "#{@book.title} was created!"
         else
             render :new
@@ -29,6 +30,7 @@ class BooksController < ApplicationController
     end
 
     def edit
+        Author.setAuthors
     end
 
     def update

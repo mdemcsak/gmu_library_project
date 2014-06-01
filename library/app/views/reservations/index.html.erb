@@ -1,0 +1,13 @@
+<h1>My Reservations</h1>
+<ol>
+<% @user = User.first %>
+<% @user.books.each do |book| %>
+    <li>
+        <%= link_to(book) do %>
+            <%= image_tag(book.image_cover_url, :size => "90x136", class: 'img-thumbnail') %>
+        <% end %>
+        <%= link_to(book.title, book) %> by <%= book.author %><br/>
+	<%= button_to 'Check in', reservation_path(@user.reservations.where(book_id: book).first.id), method: :delete %><br />
+    </li>
+<% end %>
+</ol>

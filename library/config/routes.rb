@@ -11,11 +11,21 @@ Library::Application.routes.draw do
   resources :books do
       get 'page/:page', :action => :index, :on => :collection
   end
+ 
+  resources :users
   
+  get "/sessions" => "sessions#new", as: 'sessions'
+  post "/sessions" => "sessions#create"
+  delete "/sessions/:id" => "sessions#destroy"
+
   get "/authors" => "authors#index", as: 'authors'
   get "/authors/:id" => "authors#show", as: 'author'
-  
-  root 'books#index'
+ 
+  get "/reservations" => "reservations#index", as: 'reservations'
+  post "/reservations" => "reservations#create", as: 'create_reservation' 
+  delete "/reservations/:id" => "reservations#destroy", as: 'reservation'
+ 
+  root 'sessions#new'
     
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
