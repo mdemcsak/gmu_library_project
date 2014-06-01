@@ -1,8 +1,8 @@
 User.delete_all
-User.where(name: 'Administrator').first_or_create!(name: 'Administrator', user_id: 'admin', password: 'password', admin: TRUE)
-User.where(name: 'Mike D').first_or_create!(name: 'Mike D', user_id: 'miked', password: 'password', admin: FALSE)
-User.where(name: 'John S').first_or_create!(name: 'John S', user_id: 'johns', password: 'password', admin: FALSE)
-User.where(name: 'Eric D').first_or_create!(name: 'Eric D', user_id: 'ericd', password: 'password', admin: FALSE)
+User.where(name: 'Administrator').first_or_create!(name: 'Administrator', user_id: 'admin', password: 'password', password_confirmation: 'password', admin: TRUE)
+User.where(name: 'Mike D').first_or_create!(name: 'Mike D', user_id: 'miked', password: 'password', password_confirmation: 'password', admin: FALSE)
+User.where(name: 'John S').first_or_create!(name: 'John S', user_id: 'johns', password: 'password', password_confirmation: 'password', admin: FALSE)
+User.where(name: 'Eric D').first_or_create!(name: 'Eric D', user_id: 'ericd', password: 'password', password_confirmation: 'password', admin: FALSE)
 Book.delete_all
 Book.where(isbn: '0-394-41525-6').first_or_create!(isbn: '0-394-41525-6', title: 'The Andromeda Strain', author: 'Michael Crichton', genre: 'Techno-Thriller', abstract: 'The Andromeda Strain is a novel documenting the efforts of a team of scientists investigating a deadly extraterrestrial microorganism which rapidly and fatally clots human blood, while inducing insanity in some people.', pages: 350, image_cover_url: 'http://upload.wikimedia.org/wikipedia/en/b/bf/Big-andromedastrain.jpg', published_on: '1969-05-12', total_in_library: 1, author_id: 1)
 Book.where(isbn: '0-394-51392-4').first_or_create!(isbn: '0-394-51392-4', title: 'Congo', author: 'Michael Crichton', genre: 'Techno-Thriller', abstract: 'Congo is a 1980 science fiction novel by Michael Crichton. The novel centers on an expedition searching for diamonds and investigating the mysterious deaths of a previous expedition in the dense rain forest of Congo. Crichton calls Congo a Lost World novel in the tradition founded by Henry Rider Haggard''s King Solomon''s Mines, featuring the mines of that work''s title.', pages: 348, image_cover_url: 'http://upload.wikimedia.org/wikipedia/en/thumb/4/42/Big-congo.jpg/200px-Big-congo.jpg', published_on: '1980-11-01', total_in_library: 2, author_id: 1)

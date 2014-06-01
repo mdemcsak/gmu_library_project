@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140601065812) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "user_id"
@@ -56,5 +56,5 @@ ActiveRecord::Schema.define(version: 20140601065812) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-  
+
 end
