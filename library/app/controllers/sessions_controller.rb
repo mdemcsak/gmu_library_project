@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :authorize, only: [:new, :create]
 
   def new
   end
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(user_id: params[:user_id])
     if user and user.authenticate(params[:password])
-      session[:user_id] = user.id
+      session[:user_id] = user.user_id
       session[:admin] = user.admin
       redirect_to books_url, notice: "Welcome back #{user.name}"
     else

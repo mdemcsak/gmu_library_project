@@ -16,7 +16,9 @@
       <%= yield %>
     </div>
     <div class="col-xs-3">
-      <%= render '/layouts/sidebar' %>
+      <% if session[:user_id] %>
+        <%= render '/layouts/sidebar' %>
+      <% end %>
     </div>
   </div>
   <%= render '/layouts/footer' %>
