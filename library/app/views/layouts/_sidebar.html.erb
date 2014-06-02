@@ -22,15 +22,21 @@
       <% end %>
     </p>
     <p> 
-      <%= link_to 'My Reservations', reservations_path %>
+      <%= link_to reservations_path, class: 'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-barcode"></span> My Reservations
+      <% end %>
     </p>
     <p>
       <% if session[:admin] %> 
-        <%= link_to 'Overdue Books', overdue_reservations_path %>
-      <% end %>
+        <%= link_to overdue_reservations_path, class: 'btn btn-default col-md-12' do %>
+          <span class="pull-left glyphicon glyphicon-save"></span> Overdue Books
+        <% end %>
+      <%end %>
     </p>
     <p> 
-      <%= link_to 'Logout', sessions_path, method: :delete %>
+      <%= link_to sessions_path, method: :delete, class:  'btn btn-default col-md-12' do %>
+        <span class="pull-left glyphicon glyphicon-off"></span> Logout
+      <% end %>
     </p>
   </div>
 </div>

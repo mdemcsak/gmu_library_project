@@ -43,7 +43,6 @@ public class AuthorResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<Author> authors() {
-        _authorDao.populateAuthors();
         return _authorDao.getAllAuthors();
     }
 
@@ -51,7 +50,6 @@ public class AuthorResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Author author(@PathParam("authorid") Integer id) {
-        _authorDao.populateAuthors();
         return _authorDao.getAuthor(id);
     }
 

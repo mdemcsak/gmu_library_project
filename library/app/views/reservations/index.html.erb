@@ -7,7 +7,7 @@
             <%= image_tag(book.image_cover_url, :size => "90x136", class: 'img-thumbnail') %>
         <% end %>
         <%= link_to(book.title, book) %> by <%= book.author %><br/>
-	<%= button_to 'Check in', reservation_path(@user.reservations.where(book_id: book).first.id), method: :delete %><br />
+	<%= button_to 'Check in', reservation_path(@user.reservations.where(book_id: book).first.id), method: :delete, class: 'btn btn-default' %><br />
     </li>
 <% end %>
 </ol>

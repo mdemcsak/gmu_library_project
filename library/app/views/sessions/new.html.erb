@@ -1,7 +1,5 @@
-<h1>Login Form</h1>
   <%= form_tag do %>
   <fieldset>
-    <legend>Please Log In</legend>
     <div>
       <%= label_tag :user_id, 'User Name:' %>
       <%= text_field_tag :user_id, params[:user_id] %>
@@ -11,10 +9,8 @@
       <%= password_field_tag :password, params[:password] %>
     </div>
     <div>
-      <%= submit_tag "Login" %>
-    </div>
-    <div>
-      <%= link_to("New User",new_user_path) %>
+      <%= submit_tag "Login", class: 'btn btn-primary' %>
+      <%= link_to("New User",new_user_path, class: 'btn btn-success') %>
     </div>
   </fieldset>
   <% end %>

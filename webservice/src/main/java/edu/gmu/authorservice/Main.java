@@ -2,9 +2,11 @@ package edu.gmu.authorservice;
 
 import edu.gmu.authorservice.dao.AuthorDao;
 import edu.gmu.authorservice.dao.InMemoryAuthorDao;
+import edu.gmu.authorservice.dao.JdbcAuthorDao;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.sqlite.SQLiteDataSource;
 
 import java.io.IOException;
 import java.net.URI;
@@ -36,8 +38,14 @@ public class Main {
         // Setup AuthorDao. in this sample we're using an in-memory implementation; for extra
         // credit you can create a JDBC-based implementation. Note also that the in-memory class
         // is not actually implemented; we have defined the outline of it but not the details)
-        AuthorDao authorDao = new InMemoryAuthorDao();
+        //AuthorDao authorDao = new InMemoryAuthorDao();
 
+        AuthorDao authorDao = new JdbcAuthorDao();
+
+        SQLiteDataSource dataSource = new SQLiteDataSource();
+        dataSource.setUrl("jdbc:sqlite:db/authors.db");
+
+        authorDao.populateAuthors(dataSource);
         // Set property for authorDao (the resource can then access its configuration properties)
         props.put("authorDao", authorDao);
 

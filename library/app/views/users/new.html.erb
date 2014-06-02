@@ -9,6 +9,6 @@
 	<%= f.label :admin %> <%= f.select :admin, [true, false], { prompt: "Pick one"} %><br />
     <p>
 	    <%= f.submit class: 'btn btn-primary' %>
-	    <%= link_to 'Cancel', sessions_path %>
+	    <%= link_to 'Cancel', sessions_path, class: 'btn btn-default' %>
   	</p>
 <% end %>
