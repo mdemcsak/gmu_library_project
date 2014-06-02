@@ -3,7 +3,6 @@ class BooksController < ApplicationController
                 only: [:show, :edit, :update, :destroy]
     
     def index
-	
 	if params[:q]
             @books = Book.search(params[:q]).order(:title).page(params[:page])
             @header = 'Search Results'

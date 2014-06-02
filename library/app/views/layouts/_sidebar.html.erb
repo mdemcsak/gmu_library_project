@@ -10,8 +10,10 @@
       <% end %>
     </p>
       <p>
-      <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
-        <span class="pull-left glyphicon glyphicon-plus-sign"></span> New Book
+      <% if session[:admin] %>
+        <%= link_to new_book_path, class: 'btn btn-default col-md-12' do %>
+          <span class="pull-left glyphicon glyphicon-plus-sign"></span> New Book
+        <% end %>
       <% end %>
     </p>
     <p>
@@ -21,6 +23,11 @@
     </p>
     <p> 
       <%= link_to 'My Reservations', reservations_path %>
+    </p>
+    <p>
+      <% if session[:admin] %> 
+        <%= link_to 'Overdue Books', overdue_reservations_path %>
+      <% end %>
     </p>
     <p> 
       <%= link_to 'Logout', sessions_path, method: :delete %>

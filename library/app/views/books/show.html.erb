@@ -1,4 +1,5 @@
 <article class="book">
+  <%= render 'shared/validation_errors', object: @book %>
   <header>
     <h2><%= @book.title %></h2>
   </header>
@@ -12,16 +13,14 @@
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Published On:</label> <%= @book.published_on %></p>
   <p><label>Available to Reserve:</label> <%= @book.total_in_library %></p>
-  <% @user = User.first %>
+  <% @user = User.find_by(user_id: session[:user_id]) %>
   <% if @user.reservations.where(book_id: @book).empty? %>
   <p><%= link_to "Reserve", create_reservation_path(book_id: @book), method: :post %></p>
   <% else %>
   <p><%= "You already have this book checked out." %></p>
   <% end %>
+  <% if session[:admin] %>
+    <%= link_to 'Edit', edit_book_path(@book) %>
+    <%= button_to 'Delete', @book, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </article>
-
-<%= link_to 'All Books', books_path %>
-| <%= link_to 'Edit', edit_book_path(@book) %>
-<%= button_to 'Delete', @book, 
-				method: :delete, 
-				data: { confirm: 'Are you sure?' } %>

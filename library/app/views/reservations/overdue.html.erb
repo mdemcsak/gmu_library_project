@@ -1,0 +1,15 @@
+<%= page_entries_info @reservations %>
+<ol>
+<% @reservations.each do |reservation| %>
+    <li>
+        <%= link_to(reservation.book) do %>
+            <%= image_tag(reservation.book.image_cover_url, :size => "90x136", class: 'img-thumbnail') %>
+        <% end %>
+        <%= link_to(reservation.book.title, reservation.book) %><br/>
+        <p>Reserved by <%= reservation.user.user_id %></p>
+        <p>Reserved on <%= reservation.reserved_on %></p>
+        <p>Due on <%= reservation.due_on %></p>
+    </li>
+<% end %>
+</ol>
+<%= paginate @reservations %>

@@ -22,6 +22,7 @@ Library::Application.routes.draw do
   get "/authors/:id" => "authors#show", as: 'author'
  
   get "/reservations" => "reservations#index", as: 'reservations'
+  get "/reservations/overdue" => "reservations#overdue", as: 'overdue_reservations'
   post "/reservations" => "reservations#create", as: 'create_reservation' 
   delete "/reservations/:id" => "reservations#destroy", as: 'reservation'
  

@@ -1,6 +1,6 @@
 <h1>My Reservations</h1>
 <ol>
-<% @user = User.first %>
+<% @user = User.find_by(user_id: session[:user_id]) %>
 <% @user.books.each do |book| %>
     <li>
         <%= link_to(book) do %>
